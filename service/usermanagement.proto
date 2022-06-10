@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package service;
 
-option go_package = "github.com/drewfrost/user-management;go_usermanagement_service";
+option go_package = "github.com/drewfrost/grpc-user-management;go_usermanagement_grpc";
 
 service UserManagement {
     rpc CreateNewUser (NewUser) returns (User){}

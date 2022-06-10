@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: service/usermanagement.proto
 
-package go_usermanagement_service
+package go_usermanagement_grpc
 
 import (
 	context "context"
