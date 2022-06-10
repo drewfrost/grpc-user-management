@@ -2,6 +2,8 @@ package main
 
 import (
 	"context"
+	"flag"
+	"fmt"
 	"log"
 	"math/rand"
 	"net"
@@ -10,8 +12,8 @@ import (
 	"google.golang.org/grpc"
 )
 
-const (
-	port = ":50051"
+var (
+	port = flag.Int("port", 50051, "The server port")
 )
 
 type UserManagementServer struct {
@@ -30,7 +32,8 @@ func (s *UserManagementServer) CreateNewUser(ctx context.Context, in *pb.NewUser
 }
 
 func main() {
-	lis, err := net.Listen("tcp", port)
+	flag.Parse()
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
